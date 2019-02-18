@@ -50,9 +50,9 @@
     sessionId = exports.SESSION_ID;
     token = exports.TOKEN;
     initializeSession();
-  } else if (exports.SAMPLE_SERVER_BASE_URL) {
+  } else if (exports.BASE_URL) {
     // Make an Ajax request to get the OpenTok API key, session ID, and token from the server
-    fetch(exports.SAMPLE_SERVER_BASE_URL + '/session').then(function fetchThen(res) {
+    fetch(exports.BASE_URL + '/session').then(function fetchThen(res) {
       return res.json();
     }).then(function jsonThen(json) {
       apiKey = json.apiKey;
