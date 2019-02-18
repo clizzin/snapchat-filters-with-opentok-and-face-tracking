@@ -16,13 +16,17 @@ Make a note of the *SESSION ID* that gets created.
 
 ### Generate a Token
 
-Before we configure the application, we need to generate a token. On your project dashboard, under *Project Tools* (the same section where you created your session ID), 
+Before we configure the application, we need to generate a token. On your project dashboard, under *Project Tools* (the same section where you created your session ID), enter the *SESSION ID* you just generated and click **Generate token**.
+
+Make a note of the *GENERATED TOKEN* for the next step.
 
 ### Configure Application
 
 Make a copy of `config.js.example` and save it as `config.js` (in the js directory) making sure to modify the values to those from your TokBox account.
 
-*API KEY*, *SECRET* and *SESSION ID* are all retreived above. If you are running the application locally using `npm start`, you will need a *BASE URL* of `http://127.0.0.1:8080`
+*API KEY*, *SESSION ID* and *TOKEN* are all created above. If you are running the application locally using `npm start`, you will need a *BASE URL* of `http://127.0.0.1:8080`. For something like Heroku, it's more like `https://app-name.herokuapp.com`.
+
+Your `config.js` will end up looking something like this.
 
 ```js
 (function closure(exports) {
@@ -44,7 +48,3 @@ npm install
 ```bash
 npm start
 ```
-
-## How it works
-
-When you open the window, it 
