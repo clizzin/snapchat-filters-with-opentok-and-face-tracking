@@ -33,25 +33,19 @@
 
     var reqId;
 
-    // Draw a box around face
-    var tracker = new tracking.ObjectTracker('face');
-    tracker.setInitialScale(10);
-    tracker.setStepSize(2);
-    tracker.setEdgesDensity(0.01);
+    // Tracker.js
 
     // Draw each frame of the video
     var drawFrame = function drawFrame() {
       // Draw the video element onto the temporary canvas and pull out the image data
       tmpCtx.drawImage(videoEl, 0, 0, tmpCanvas.width, tmpCanvas.height);
-
-
       var imgData = tmpCtx.getImageData(0, 0, tmpCanvas.width, tmpCanvas.height);
       // Apply the currently selected filter and get the new image data
       imgData = exports.Filters.selectedFilter(imgData);
       // Draw the filtered image data onto the main canvas
       ctx.putImageData(imgData, 0, 0);
-      
-      exports.Masks.selectedMask(tracker, canvas, ctx);
+
+      // apply Mask
 
       reqId = requestAnimationFrame(drawFrame);
     };
