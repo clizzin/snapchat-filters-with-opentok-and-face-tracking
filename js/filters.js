@@ -49,9 +49,22 @@
         res[i + 3] = imgData.data[i + 3]; // Leave alpha alone
       }
       return new ImageData(res, imgData.width, imgData.height);
-    }
+    },
 
     // Brighten
+    brighten: function brighten(imgData) {
+      const res = new Uint8ClampedArray(imgData.data.length);
+      for (let i = 0; i < imgData.data.length; i += 4) {
+        var inputRed = imgData.data[i];
+        var inputGreen = imgData.data[i + 1];
+        var inputBlue = imgData.data[i + 2];
+        res[i] = inputRed + 80;
+        res[i + 1] = inputGreen + 80;
+        res[i + 2] = inputBlue + 80;
+        res[i + 3] = imgData.data[i + 3];
+      }
+      return new ImageData(res, imgData.width, imgData.height);
+    }
 
     // Threshold
   };

@@ -34,6 +34,11 @@
     var reqId;
 
     // Tracker.js
+    // Draw a box around face
+    var tracker = new tracking.ObjectTracker('face');
+    tracker.setInitialScale(10);
+    tracker.setStepSize(2);
+    tracker.setEdgesDensity(0.01);
 
     // Draw each frame of the video
     var drawFrame = function drawFrame() {
@@ -46,6 +51,7 @@
       ctx.putImageData(imgData, 0, 0);
 
       // apply Mask
+      exports.Masks.selectedMask(tracker, canvas, ctx);
 
       reqId = requestAnimationFrame(drawFrame);
     };
